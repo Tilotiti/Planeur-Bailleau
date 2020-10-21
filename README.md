@@ -2,10 +2,10 @@
 
 ## Requirements
 
-  php >= 7.4
-  composer
-  PostgreSQL
-  Yarn
+    php >= 7.4
+    composer
+    PostgreSQL
+    Yarn
   
 ## Installation locale
 
