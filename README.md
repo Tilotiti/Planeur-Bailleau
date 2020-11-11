@@ -3,6 +3,7 @@
 ## Requirements
 
     php >= 7.4
+    symfony-cli
     composer
     PostgreSQL
     Yarn
@@ -17,6 +18,7 @@ Modifiez le fichier ’.env.local’ pour configurer le projet.
   
     composer install # Installation des dépendances PHP
     yarn install # Installion des dépendances JS
+    symfony server:ca:install # Installation des certificats de développement
     bin/release # Suppression du cache et mise à jour du schéma de la BDD
  
 ## Mise à jour du projet local
