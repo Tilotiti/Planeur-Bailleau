@@ -8,6 +8,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     .addEntry('app', './assets/js/app.js')
+    .addEntry('index', './assets/js/index.js')
 
     .copyFiles({
         from: './assets/images',
