@@ -1,3 +1,7 @@
+@import "include";
+
+@import '~bootstrap/scss/bootstrap-grid';
+
 body > header {
   position: absolute;
   top: 0;
@@ -9,11 +13,32 @@ body > header {
 #banner {
   position: relative;
   height: 100vh;
-  line-height: 100vh;
   background-image: url('../images/background.jpg');
   background-size: cover;
   text-align: center;
+  background-position: 40%;
+
+  @include media-breakpoint-up(sm) {
+    background-position: 35%;
+  }
+
+  @include media-breakpoint-up(md) {
+    background-position: 30%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    background-position: center;
+  }
 
   img {
+    position: absolute;
+    width: 300px;
+    bottom: 100px;
+    right: calc(50% - 170px);
+
+    @include media-breakpoint-up(xl) {
+       bottom: 200px;
+       right: 150px;
+     }
   }
 }

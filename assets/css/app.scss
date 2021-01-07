@@ -1,13 +1,89 @@
+@import "include";
+
+@import '~bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;700&display=swap');
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
 body {
-    background-color: lightgray;
+  background-color: #f3f3f3;
 }
 
 header {
-    .navbar-brand {
-        padding: 0;
+  background: #fff;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
 
-        img {
-            height: 30px;
-        }
+  .navbar {
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+      padding-bottom: 0;
     }
+  }
+
+  .navbar-brand {
+    padding: 0;
+
+    img {
+      height: 30px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 0;
+    }
+
+    .nav-item {
+      padding: 5px 20px;
+
+      .nav-link {
+        color: $primary;
+
+        &.dropdown-toggle::after {
+          float: right;
+          margin-top: 10px;
+
+          @include media-breakpoint-up(md) {
+            float: none;
+            margin-left: 15px;
+            margin-top: 0;
+          }
+        }
+      }
+
+      .dropdown-menu {
+        margin-bottom: 20px;
+      }
+
+      &.active {
+        background-color: $primary;
+
+        .nav-link {
+          color: #fff !important;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        &:hover {
+          background-color: $primary;
+
+          .nav-link {
+            color: #fff !important;
+          }
+        }
+      }
+    }
+  }
 }

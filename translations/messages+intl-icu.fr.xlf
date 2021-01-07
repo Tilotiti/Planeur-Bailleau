@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="fr" trgLang="fr">
+  <file id="messages.fr">
+    <unit id="VYTR44p" name="nav.home">
+      <segment>
+        <source>nav.home</source>
+        <target>Acceuil</target>
+      </segment>
+    </unit>
+    <unit id="UYazUdf" name="nav.news">
+      <segment>
+        <source>nav.news</source>
+        <target>Actualités</target>
+      </segment>
+    </unit>
+    <unit id="6sXDXBe" name="nav.shop">
+      <segment>
+        <source>nav.shop</source>
+        <target>Boutique</target>
+      </segment>
+    </unit>
+    <unit id="TqjcdsD" name="nav.contact">
+      <segment>
+        <source>nav.contact</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="ursKFnc" name="nav.login">
+      <segment>
+        <source>nav.login</source>
+        <target>Se connecter</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

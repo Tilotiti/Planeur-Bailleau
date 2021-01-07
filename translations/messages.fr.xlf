@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="fr" trgLang="fr">
+  <file id="messages.fr">
+    <unit id="cDu6Rok" name="user.email.label">
+      <segment>
+        <source>user.email.label</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="6SYx6u8" name="user.password.label">
+      <segment>
+        <source>user.password.label</source>
+        <target>Mot de passe</target>
+      </segment>
+    </unit>
+    <unit id="huSwyQL" name="login.remember_me">
+      <segment>
+        <source>login.remember_me</source>
+        <target>Se souvenir de moi</target>
+      </segment>
+    </unit>
+    <unit id="jlMj..y" name="login.submit">
+      <segment>
+        <source>login.submit</source>
+        <target>Se connecter</target>
+      </segment>
+    </unit>
+    <unit id="ursKFnc" name="nav.login">
+      <segment>
+        <source>nav.login</source>
+        <target>Connexion</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
