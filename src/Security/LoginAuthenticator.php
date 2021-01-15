@@ -2,6 +2,7 @@
 
 namespace App\Security;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,13 +21,21 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'app_login';
+    public const LOGIN_ROUTE = 'security_login';
 
     private UrlGeneratorInterface $urlGenerator;
+    /**
+     * @var EntityManagerInterface
+     */
+    private EntityManagerInterface $entityManager;
 
-    public function __construct(UrlGeneratorInterface $urlGenerator)
+    public function __construct(
+        UrlGeneratorInterface $urlGenerator,
+        EntityManagerInterface $entityManager
+    )
     {
         $this->urlGenerator = $urlGenerator;
+        $this->entityManager = $entityManager;
     }
 
     public function authenticate(Request $request): PassportInterface
@@ -49,6 +58,12 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
+
+        $user = $token->getUser();
+        $user->setConnectedAt(new \DateTime());
+
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
 
         return new RedirectResponse($this->urlGenerator->generate('index'));
     }

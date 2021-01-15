@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs - Administration{% endblock %}
+
+{% form_theme filter 'include/form/filter.html.twig' %}
+
+{% block container %}
+    <h1>Utilisateurs</h1>
+    {{ form(filter) }}
+    <div class="table-responsive card">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>E-mail</th>
+                    <th>Rôle</th>
+                    <th>Création</th>
+                    <th>Dernière connexion</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.fullName }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.hasRole('ROLE_ADMIN') ? 'Administrateur' : 'Pilote' }}</td>
+                        <td>{{ user.createdAt | format_datetime('medium', 'short') }}</td>
+                        <td>{{ user.updatedAt | format_datetime('medium', 'short') }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('admin_user_edit', {'user': user.id}) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            <em>Aucun utilisateur</em>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="card-footer text-end">
+            <div class="row">
+                <div class="col-12 col-md-6 col-center col-md-start">
+                    {{ pagination(users) }}
+                </div>
+                <div class="col-12 col-md-6 col-center col-md-end">
+                    <a href="{{ path('admin_user_add') }}" class="btn btn-success btn-sm">
+                        <i class="fas fa-plus"></i> Ajouter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

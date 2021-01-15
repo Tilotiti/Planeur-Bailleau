@@ -1,0 +1,6 @@
+<p>Bonjour,</p>
+<p>Votre compte bien d'être créé sur <a href="{{ url('index') }}">Planeur-Bailleau</a>.</p>
+<p>Pour configurer votre accès, continuez votre inscription en cliquant sur le lien suivant :</p>
+<p>
+    <a href="{{ url('security_invitation', {'code': user.invitationCode}) }}">Créer mon compte</a>
+</p>

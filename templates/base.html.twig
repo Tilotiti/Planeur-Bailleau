@@ -70,11 +70,11 @@
                         <a href="#" class="btn btn-outline-primary me-2">
                             <i class="fas fa-user"></i>
                         </a>
-                        <a href="{{ path('app_logout') }}" class="btn btn-outline-primary">
+                        <a href="{{ path('security_logout') }}" class="btn btn-outline-primary">
                             <i class="fas fa-sign-out-alt"></i>
                         </a>
                     {% else %}
-                        <a href="{{ path('app_login') }}" class="btn btn-outline-primary">{{ 'nav.login' | trans }}</a>
+                        <a href="{{ path('security_login') }}" class="btn btn-outline-primary">{{ 'nav.login' | trans }}</a>
                     {% endif %}
                 </div>
             </div>

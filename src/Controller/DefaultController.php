@@ -134,7 +134,7 @@ class DefaultController extends ExtendedController
             }
 
             $email->subject('[Planeur-Bailleau.org] Nouveau message');
-            $email->htmlTemplate('include/email/contact.html.twig');
+            $email->htmlTemplate('email/contact.html.twig');
             $email->context([
                 'contact' => $contact
             ]);

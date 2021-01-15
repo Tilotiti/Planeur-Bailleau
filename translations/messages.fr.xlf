@@ -305,5 +305,41 @@ Vous pouvez également, pour des motifs légitimes, vous opposer au traitement d
         <target>En lire plus</target>
       </segment>
     </unit>
+    <unit id="guXTUCg" name="login.password">
+      <segment>
+        <source>login.password</source>
+        <target>Mot de passe oublié</target>
+      </segment>
+    </unit>
+    <unit id="5egKsvQ" name="user.firstname.label">
+      <segment>
+        <source>user.firstname.label</source>
+        <target>Prénom</target>
+      </segment>
+    </unit>
+    <unit id="kynqkFD" name="user.lastname.label">
+      <segment>
+        <source>user.lastname.label</source>
+        <target>Nom de famille</target>
+      </segment>
+    </unit>
+    <unit id=".y46ZW6" name="user.role.label">
+      <segment>
+        <source>user.role.label</source>
+        <target>Droits utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="tdRX9qF" name="user.role.ROLE_USER">
+      <segment>
+        <source>user.role.ROLE_USER</source>
+        <target>Utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="APXu23T" name="user.role.ROLE_ADMIN">
+      <segment>
+        <source>user.role.ROLE_ADMIN</source>
+        <target>Administrateur</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

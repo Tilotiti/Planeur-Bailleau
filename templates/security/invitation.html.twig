@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Invitation{% endblock %}
+
+{% block container %}
+    <div class="row justify-content-center mt-4">
+        <div class="col col-md-8 col-lg-6 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <p>Bonjour {{ user.firstname }},</p>
+                    <p>Votre compte a été créé. Vous pouvez maintenant terminer la configuration de votre compte en
+                        ajoutant un mot de passe. Vous pourrez alors vous connecter.</p>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="inputEmail" disabled value="{{ user.email }}"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputPassword" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" name="password" autocomplete="new-password"
+                                   id="inputPassword"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputConfirmation" class="form-label">Confirmation</label>
+                            <input type="password" class="form-control" name="confirmation" autocomplete="new-password"
+                                   id="inputConfirmation"/>
+                        </div>
+                        <div class="form-group d-grid gap-2">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save fa-w-1 me-2"></i> Enregistrer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

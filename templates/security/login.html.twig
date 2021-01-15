@@ -33,9 +33,16 @@
                         </label>
                     </div>
 
-                    <button class="btn btn-primary d-block" type="submit">
-                        {{ 'login.submit' | trans }}
-                    </button>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-key fa-w me-2"></i>
+                            {{ 'login.submit' | trans }}
+                        </button>
+                        <a href="{{ path('security_password') }}" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-question-circle fa-w me-2"></i>
+                            {{ 'login.password' | trans }}
+                        </a>
+                    </div>
                 </div>
             </form>
         </div>

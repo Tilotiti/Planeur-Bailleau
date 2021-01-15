@@ -35,9 +35,9 @@ class User implements UserInterface
 
     /**
      * @var ?string The hashed password
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
-    private ?string $password;
+    private ?string $password = null;
 
     const PASSWORD_REGEX = '#^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$#i';
 
@@ -102,6 +102,13 @@ class User implements UserInterface
     }
 
     /**
+     * @return string
+     */
+    public function getInvitationCode(): string {
+        return md5($this->email);
+    }
+
+    /**
      * @param string|null $email
      */
     public function setEmail(?string $email): void
@@ -129,6 +136,10 @@ class User implements UserInterface
         $roles[] = self::ROLE_USER;
 
         return array_unique($roles);
+    }
+
+    public function hasRole(string $role): bool {
+        return in_array($role, $this->getRoles());
     }
 
     public function setRoles(array $roles): self
