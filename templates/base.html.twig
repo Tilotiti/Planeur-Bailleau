@@ -25,11 +25,11 @@
                     <li class="nav-item {{ app.request.get('_route') == 'index' ? 'active' }}">
                         <a class="nav-link" href="{{ path('index') }}">{{ 'nav.home' | trans }}</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ app.request.get('_route') starts with 'post' ? 'active' }}">
                         <a class="nav-link" href="{{ path('post') }}">{{ 'nav.post' | trans }}</a>
                     </li>
                     {% for menu in menuService.menus | filter(m => m.pages.count > 0) %}
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown {{ app.request.get('_route') == 'page' and page.menu.id == menu.id ? 'active' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="menu_{{ menu.id }}" role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ menu.title }}

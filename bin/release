@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export COMPOSER_PROCESS_TIMEOUT=60000
+
+bin/console doctrine:migration:migrate --allow-no-migration --no-interaction
+composer auto-scripts
