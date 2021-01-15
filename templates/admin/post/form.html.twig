@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualité - Administration{% endblock %}
+
+{% block container %}
+    <h1>
+        {% if post.title == '' %}
+            Ajouter une actualité
+        {% else %}
+            Modifier l'actualité "{{ post.title }}"
+        {% endif %}
+    </h1>
+    {{ form_start(form) }}
+    <div class="card">
+        <div class="card-body">
+            {{ form_rest(form) }}
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-primary">
+                <i class="fas fa-save"></i> Enregistrer
+            </button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}

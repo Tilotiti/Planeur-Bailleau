@@ -81,6 +81,10 @@ class User implements UserInterface
         $this->updatedAt = new \DateTime();
     }
 
+    public function __toString() {
+        return $this->getFullName();
+    }
+
     /**
      * @return int
      */
@@ -212,6 +216,13 @@ class User implements UserInterface
     public function setLastname(string $lastname): void
     {
         $this->lastname = mb_strtoupper($lastname);
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string {
+        return $this->getFirstname().' '.$this->getLastname();
     }
 
     /**

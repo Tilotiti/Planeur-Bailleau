@@ -27,7 +27,7 @@ class PageRepository extends ServiceEntityRepository
         $dql->leftJoin('page.translations', 'translation');
 
         if(!empty($params['title'])) {
-            $dql->andWhere('LOWER(translation.title) LIKE LOWER(:title)')
+            $dql->andWhere('UNACCENT(LOWER(translation.title)) LIKE UNACCENT(LOWER(:title))')
                 ->setParameter('title', '%'.$params['title'].'%');
         }
 

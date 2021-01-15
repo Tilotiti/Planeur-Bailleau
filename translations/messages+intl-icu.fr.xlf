@@ -7,9 +7,9 @@
         <target>Accueil</target>
       </segment>
     </unit>
-    <unit id="UYazUdf" name="nav.news">
+    <unit id="MelqCNv" name="nav.post">
       <segment>
-        <source>nav.news</source>
+        <source>nav.post</source>
         <target>Actualités</target>
       </segment>
     </unit>

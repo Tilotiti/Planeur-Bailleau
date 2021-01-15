@@ -7,9 +7,9 @@
         <target>Home</target>
       </segment>
     </unit>
-    <unit id="UYazUdf" name="nav.news">
+    <unit id="UYazUdf" name="nav.post">
       <segment>
-        <source>nav.news</source>
+        <source>nav.post</source>
         <target>News</target>
       </segment>
     </unit>

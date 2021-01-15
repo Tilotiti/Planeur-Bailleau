@@ -227,16 +227,82 @@ Vous pouvez également, pour des motifs légitimes, vous opposer au traitement d
         <target>N'hésitez pas à nous envoyer un message, un membre de l'association vous répondra dès que possible.</target>
       </segment>
     </unit>
-    <unit id="0">
+    <unit id="9CxoiLm" name="contact.error">
       <segment>
         <source>contact.error</source>
         <target>Une erreur s'est produite, votre message n'a pu être envoyé.</target>
       </segment>
     </unit>
-    <unit id="1">
+    <unit id="nY37r3C" name="contact.success">
       <segment>
         <source>contact.success</source>
         <target>Votre message a bien été envoyé.</target>
+      </segment>
+    </unit>
+    <unit id="6amYvhG" name="post.title.label">
+      <segment>
+        <source>post.title.label</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
+    <unit id="ZQ77zSD" name="post.locale.label">
+      <segment>
+        <source>post.locale.label</source>
+        <target>Langue</target>
+      </segment>
+    </unit>
+    <unit id="U8Yqicm" name="post.locale.fr">
+      <segment>
+        <source>post.locale.fr</source>
+        <target>Français</target>
+      </segment>
+    </unit>
+    <unit id="MqgVM8K" name="post.locale.en">
+      <segment>
+        <source>post.locale.en</source>
+        <target>Anglais</target>
+      </segment>
+    </unit>
+    <unit id="2t6IuW1" name="post.content.label">
+      <segment>
+        <source>post.content.label</source>
+        <target>Contenu</target>
+      </segment>
+    </unit>
+    <unit id="kd_6Tg2" name="post.draft.label">
+      <segment>
+        <source>post.draft.label</source>
+        <target>Publication</target>
+      </segment>
+    </unit>
+    <unit id="nUai.C1" name="post.draft.true">
+      <segment>
+        <source>post.draft.true</source>
+        <target>Brouillon</target>
+      </segment>
+    </unit>
+    <unit id="P6HLXt6" name="post.draft.false">
+      <segment>
+        <source>post.draft.false</source>
+        <target>Publié</target>
+      </segment>
+    </unit>
+    <unit id="LuWo0tW" name="post.user.label">
+      <segment>
+        <source>post.user.label</source>
+        <target>Publié par %name%</target>
+      </segment>
+    </unit>
+    <unit id="Dg_Qvdg" name="post.createdAt.label">
+      <segment>
+        <source>post.createdAt.label</source>
+        <target>Publié le %date%</target>
+      </segment>
+    </unit>
+    <unit id="ckpW9du" name="post.more">
+      <segment>
+        <source>post.more</source>
+        <target>En lire plus</target>
       </segment>
     </unit>
   </file>

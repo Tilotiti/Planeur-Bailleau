@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'nav.post' | trans }}{% endblock %}
+
+{% block container %}
+    <h1>{{ 'nav.post' | trans }}</h1>
+    {% for post in posts %}
+        <div class="card">
+            <div class="card-body">
+                <div class="float-end">{{ 'post.user.label' | trans({
+                        '%name%': post.user
+                    }) }} - {{ post.createdAt | format_datetime('medium', 'short') }}</div>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content | striptags | u.wordwrap(20) }}</p>
+                <a href="{{ path('post_view', {
+                    'post': post.id,
+                    'code': post.code
+                }) }}" class="btn btn-outline-primary">{{ 'post.more' | trans }}</a>
+            </div>
+        </div>
+    {% endfor %}
+    <p class="text-center">
+        {{ pagination(posts) }}
+    </p>
+{% endblock %}

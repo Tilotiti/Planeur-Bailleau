@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,13 +19,19 @@ class Post
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
      */
-    private int $int;
+    private int $id;
 
     /**
      * @var string
      * @ORM\Column(type="string")
      */
     private string $title = '';
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", options={"default": ""})
+     */
+    private string $code = '';
 
     /**
      * @var string
@@ -70,17 +77,9 @@ class Post
     /**
      * @return int
      */
-    public function getInt(): int
+    public function getId(): int
     {
-        return $this->int;
-    }
-
-    /**
-     * @param int $int
-     */
-    public function setInt(int $int): void
-    {
-        $this->int = $int;
+        return $this->id;
     }
 
     /**
@@ -97,6 +96,28 @@ class Post
     public function setTitle(string $title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode(): string
+    {
+        if(!$this->code) {
+            $this->setCode($this->getTitle());
+        }
+
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode(string $code): void
+    {
+        $code = (new Slugify())->slugify($code);
+
+        $this->code = $code;
     }
 
     /**

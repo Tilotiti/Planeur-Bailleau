@@ -16,6 +16,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -77,6 +78,12 @@ class DefaultController extends ExtendedController
      * @return Response
      */
     public function page(Page $page): Response {
+        if($page->getMenu()) {
+            if(!$page->getMenu()->isPublic() && !$this->isGranted('IS_AUTHENTICATED_FULLY')) {
+                throw new AccessDeniedException();
+            }
+        }
+
         return $this->render('default/page.html.twig', [
             'page' => $page
         ]);

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités - Administration{% endblock %}
+
+{% block container %}
+    <h1>Actualités</h1>
+    <div class="table-responsive card">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Création</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                    <tr class="{{ post.draft ? 'bg-warning' }}">
+                        <td>
+                            <span class="me-2">{{ post.locale == 'fr' ? '🇫🇷' :  '🇬🇧' }}</span>
+                            {{ post.title }}
+                        </td>
+                        <td>{{ post.user.firstname }} {{ post.user.lastname }}</td>
+                        <td>{{ post.createdAt | format_datetime('medium', 'short') }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('post_view', {
+                                'post': post.id,
+                                'code': post.code
+                            }) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="{{ path('admin_post_edit', {'post': post.id}) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            <em>Aucune actualité</em>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="card-footer text-end">
+            <div class="row">
+                <div class="col-12 col-md-6 col-center col-md-start">
+                    {{ pagination(posts) }}
+                </div>
+                <div class="col-12 col-md-6 col-center col-md-end">
+                    <a href="{{ path('admin_post_add') }}" class="btn btn-success btn-sm">
+                        <i class="fas fa-plus"></i> Ajouter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -29,10 +29,10 @@ class MenuType extends AbstractType
                 ]
             ])
             ->add('order', NumberType::class, [
-                'label' => 'menu.order.title'
+                'label' => 'menu.order.label'
             ])
             ->add('public', CheckboxType::class, [
-                'label' => 'menu.public.title',
+                'label' => 'menu.public.label',
                 'required' => false
             ])
         ;
