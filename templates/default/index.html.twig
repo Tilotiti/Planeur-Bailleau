@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Les Planeurs du CVVE Bailleau - Club de planeur du Centre-Val de Loire{% endblock %}
+{% block title %}{{ page ? page.title : 'Les Planeurs du CVVE Bailleau - Club de planeur du Centre-Val de Loire' }}{% endblock %}
 
 {% block page %}
     <div id="banner">
         <img src="{{ asset('build/images/logo.png') }}" alt="{{ block('title') }}">
+        <a href="#page"></a>
     </div>
+    {% if page %}
+        <div class="container" id="page">
+            {{ page.content | raw }}
+        </div>
+    {% endif %}
 {% endblock %}
 
 {% block js %}

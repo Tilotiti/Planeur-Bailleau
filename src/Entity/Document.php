@@ -24,6 +24,7 @@ class Document
     /**
      * @var Aircraft|null
      * @ORM\ManyToOne(targetEntity="App\Entity\Aircraft", inversedBy="documents")
+     * @ORM\JoinColumn(nullable=true)
      */
     private ?Aircraft $aircraft = null;
 
@@ -44,6 +45,12 @@ class Document
      * @ORM\Column(type="datetimetz")
      */
     private \DateTime $updatedAt;
+
+    /**
+     * @var DocumentCategory
+     * @ORM\ManyToOne(targetEntity="App\Entity\DocumentCategory", inversedBy="documents")
+     */
+    private DocumentCategory $documentCategory;
 
     public function __construct() {
         $this->createdAt = new \DateTime();

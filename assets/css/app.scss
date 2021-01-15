@@ -87,3 +87,43 @@ header {
     }
   }
 }
+
+body > .container {
+  margin-top: 30px;
+  position: relative;
+
+  & > h1 {
+    clear: both;
+  }
+}
+
+#admin {
+  a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+}
+
+.filters {
+  margin-bottom: 20px;
+
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    right: 15px;
+    top: 0;
+
+    .row {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.a2lix_translations {
+  .nav {
+    margin-bottom: 10px;
+  }
+  .nav-item:first-letter {
+    margin-right: 10px;
+  }
+}

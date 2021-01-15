@@ -18,7 +18,9 @@
         "@popperjs/core": "^2.6.0",
         "bootstrap": "^5.0.0-beta1",
         "jquery": "^3.5.1",
+        "jquery-resizable-dom": "^0.35.0",
         "node-sass": "4.14.1",
-        "sass-loader": "^8.0.0"
+        "sass-loader": "^8.0.0",
+        "trumbowyg": "^2.23.0"
     }
 }

@@ -72,7 +72,7 @@ class User implements UserInterface
 
     /**
      * @var \DateTime|null
-     * @ORM\Column(type="datetimetz")
+     * @ORM\Column(type="datetimetz", nullable=true)
      */
     private ?\DateTime $connectedAt = null;
 

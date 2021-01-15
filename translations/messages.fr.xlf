@@ -31,5 +31,157 @@
         <target>Connexion</target>
       </segment>
     </unit>
+    <unit id="EFsvYkm" name="nav.admin">
+      <segment>
+        <source>nav.admin</source>
+        <target>Administration</target>
+      </segment>
+    </unit>
+    <unit id="bEltIDa" name="nav.profil">
+      <segment>
+        <source>nav.profil</source>
+        <target>Profil</target>
+      </segment>
+    </unit>
+    <unit id="fSpZARV" name="aircraft.type.mono">
+      <segment>
+        <source>aircraft.type.mono</source>
+        <target>Monoplace</target>
+      </segment>
+    </unit>
+    <unit id="TMcCc2l" name="aircraft.type.bi">
+      <segment>
+        <source>aircraft.type.bi</source>
+        <target>Biplace</target>
+      </segment>
+    </unit>
+    <unit id="4ARjPto" name="aircraft.type.towing">
+      <segment>
+        <source>aircraft.type.towing</source>
+        <target>Remorqueur</target>
+      </segment>
+    </unit>
+    <unit id="CIApcnd" name="aircraft.license.label">
+      <segment>
+        <source>aircraft.license.label</source>
+        <target>Immatriculation</target>
+      </segment>
+    </unit>
+    <unit id="64oSFi5" name="aircraft.competitionNumber.label">
+      <segment>
+        <source>aircraft.competitionNumber.label</source>
+        <target>Numéro de concours</target>
+      </segment>
+    </unit>
+    <unit id="gwjOXsD" name="aircraft.model.label">
+      <segment>
+        <source>aircraft.model.label</source>
+        <target>Modèle</target>
+      </segment>
+    </unit>
+    <unit id="eBDuAmU" name="aircraft.type.label">
+      <segment>
+        <source>aircraft.type.label</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="JmpBuQ1" name="Translations">
+      <segment>
+        <source>Translations</source>
+        <target>Traductions</target>
+      </segment>
+    </unit>
+    <unit id="7tj5AWk" name="Fr">
+      <segment>
+        <source>Fr</source>
+        <target>Fr</target>
+      </segment>
+    </unit>
+    <unit id="_5LH44G" name="En">
+      <segment>
+        <source>En</source>
+        <target>En</target>
+      </segment>
+    </unit>
+    <unit id="FOZ0Vxo" name="menu.title.label">
+      <segment>
+        <source>menu.title.label</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
+    <unit id="sCLxre4" name="menu.url.label">
+      <segment>
+        <source>menu.url.label</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="PolZPGX" name="menu.order.title">
+      <segment>
+        <source>menu.order.title</source>
+        <target>Ordre d'affichage</target>
+      </segment>
+    </unit>
+    <unit id="P5EiBff" name="menu.public.title">
+      <segment>
+        <source>menu.public.title</source>
+        <target>Page publique ?</target>
+      </segment>
+    </unit>
+    <unit id="VYTR44p" name="nav.home">
+      <segment>
+        <source>nav.home</source>
+        <target>Accueil</target>
+      </segment>
+    </unit>
+    <unit id="INZZL8a" name="menu.label">
+      <segment>
+        <source>menu.label</source>
+        <target>Menu</target>
+      </segment>
+    </unit>
+    <unit id="lQ8QeGr" name="search.placeholder">
+      <segment>
+        <source>search.placeholder</source>
+        <target>Rechercher ...</target>
+      </segment>
+    </unit>
+    <unit id="defmgD1" name="page.title.label">
+      <segment>
+        <source>page.title.label</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
+    <unit id="yPHw5e6" name="page.url.label">
+      <segment>
+        <source>page.url.label</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="Ztq3iJP" name="page.content.label">
+      <segment>
+        <source>page.content.label</source>
+        <target>Contenu</target>
+      </segment>
+    </unit>
+    <unit id="8_dI6BA" name="menu.any">
+      <segment>
+        <source>menu.any</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
+    <unit id="pEU_aDg" name="page.code.label">
+      <segment>
+        <source>page.code.label</source>
+        <target>Code</target>
+      </segment>
+    </unit>
+    <unit id="1HlVt5k" name="page.code.help">
+      <segment>
+        <source>page.code.help</source>
+        <target><![CDATA[Le code de la page permet de déterminer sa position sur le site.<br>
+Plusieurs codes sont disponibles :<br>
+<ul><li><code>home</code> : Page d'accueil</li><li><code>contact</code> : Page "Contactez-nous"</li></ul>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

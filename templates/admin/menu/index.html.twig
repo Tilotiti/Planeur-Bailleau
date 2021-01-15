@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menus - Administration{% endblock %}
+
+{% block container %}
+    <h1>Menus</h1>
+    <div class="table-responsive card">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Public</th>
+                    <th>Pages</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for menu in menus %}
+                    <tr>
+                        <td>{{ menu.title }}</td>
+                        <td>{{ menu.public ? 'Accès public' : 'Accès pilote' }}</td>
+                        <td>{{ menu.pages.count() }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('admin_menu_edit', {'menu': menu.id}) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="text-center">
+                            <em>Aucun menu</em>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="card-footer text-end">
+            <a href="{{ path('admin_menu_add') }}" class="btn btn-success btn-sm">
+                <i class="fas fa-plus"></i> Ajouter
+            </a>
+        </div>
+    </div>
+{% endblock %}

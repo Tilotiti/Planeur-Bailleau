@@ -8,11 +8,15 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use Symfony\Component\PropertyAccess\PropertyAccess;
+
 
 /**
  * Class Menu
  * @package App\Entity
  * @ORM\Entity
+ * @method getTitle()
+ * @method getUrl()
  */
 class Menu implements TranslatableInterface
 {
@@ -28,7 +32,7 @@ class Menu implements TranslatableInterface
 
     /**
      * @var int
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="`order`")
      */
     private int $order = 0;
 
@@ -47,6 +51,10 @@ class Menu implements TranslatableInterface
 
     public function __construct() {
         $this->pages = new ArrayCollection();
+    }
+
+    public function __toString() {
+        return $this->getTitle();
     }
 
     /**
@@ -111,5 +119,23 @@ class Menu implements TranslatableInterface
     public function setPages($pages): void
     {
         $this->pages = $pages;
+    }
+
+    /**
+     * @param string $method
+     * @param array $arguments
+     * @return mixed
+     */
+    public function __call(string $method, array $arguments)
+    {
+        $translate = $this->translate();
+
+        if (substr($method, 0, 3) == 'set') {
+            PropertyAccess::createPropertyAccessor()->setValue($translate, $method, $arguments[0]);
+
+            return $this;
+        } else {
+            return PropertyAccess::createPropertyAccessor()->getValue($translate, $method);
+        }
     }
 }

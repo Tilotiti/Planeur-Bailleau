@@ -41,4 +41,25 @@ body > header {
        right: 150px;
      }
   }
+
+  > a {
+    &:before {
+      content: "\f078";
+    }
+
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    text-decoration: none;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: white;
+    color: #000000;
+    bottom: 50px;
+    margin-left: -50px;
+    border-radius: 50%;
+    opacity: 0.3;
+    font-size: 50px;
+    line-height: 100px;
+  }
 }

@@ -81,12 +81,19 @@ class CreateAdminCommand extends Command
         $user->setFirstname($firstname);
         $user->setLastname($lastname);
         $user->setEmail($email);
+        $user->setRoles([
+            User::ROLE_ADMIN,
+            User::ROLE_USER
+        ]);
 
         $user->setPassword(
             $this->userPasswordEncoder->encodePassword($user, $password)
         );
 
-        $io->success("C'est tout bon ! Tu peux maintenant te connecter depuis l'adresse suivante :");
+        $io->success("C'est tout bon ! Tu peux maintenant te connecter.");
+
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
 
         return Command::SUCCESS;
     }

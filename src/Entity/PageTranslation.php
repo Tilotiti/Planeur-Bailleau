@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslationTrait;
@@ -87,6 +88,7 @@ class PageTranslation implements TranslationInterface
      */
     public function setUrl(string $url): void
     {
+        $url = (new Slugify())->slugify($url);
         $this->url = $url;
     }
 

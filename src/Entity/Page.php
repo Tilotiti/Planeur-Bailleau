@@ -7,11 +7,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 
 /**
  * Class Page
  * @package App\Entity
  * @ORM\Entity
+ * @method string getTitle()
+ * @method string getContent()
  */
 class Page implements TranslatableInterface
 {
@@ -33,8 +36,14 @@ class Page implements TranslatableInterface
     private ?Menu $menu = null;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private ?string $code = null;
+
+    /**
      * @var int
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="`order`")
      */
     private int $order = 0;
 
@@ -88,6 +97,22 @@ class Page implements TranslatableInterface
     }
 
     /**
+     * @return string|null
+     */
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string|null $code
+     */
+    public function setCode(?string $code): void
+    {
+        $this->code = $code;
+    }
+
+    /**
      * @return int
      */
     public function getOrder(): int
@@ -133,5 +158,23 @@ class Page implements TranslatableInterface
     public function setUpdatedAt(\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @param string $method
+     * @param array $arguments
+     * @return mixed
+     */
+    public function __call(string $method, array $arguments)
+    {
+        $translate = $this->translate();
+
+        if (substr($method, 0, 3) == 'set') {
+            PropertyAccess::createPropertyAccessor()->setValue($translate, $method, $arguments[0]);
+
+            return $this;
+        } else {
+            return PropertyAccess::createPropertyAccessor()->getValue($translate, $method);
+        }
     }
 }

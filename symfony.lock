@@ -1,6 +1,15 @@
 {
+    "a2lix/auto-form-bundle": {
+        "version": "0.3.3"
+    },
+    "a2lix/translation-form-bundle": {
+        "version": "3.0.7"
+    },
     "brick/math": {
         "version": "0.9.1"
+    },
+    "cocur/slugify": {
+        "version": "v4.0.0"
     },
     "composer/package-versions-deprecated": {
         "version": "1.11.99"
@@ -566,8 +575,14 @@
     "symfony/yaml": {
         "version": "v5.1.7"
     },
+    "tiloweb/pagination-bundle": {
+        "version": "v1.5.1"
+    },
     "twig/extra-bundle": {
         "version": "v3.0.5"
+    },
+    "twig/intl-extra": {
+        "version": "v3.2.1"
     },
     "twig/twig": {
         "version": "v3.0.5"

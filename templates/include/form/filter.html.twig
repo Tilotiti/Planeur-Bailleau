@@ -1,0 +1,45 @@
+{% block form_label -%}{%- endblock form_label %}
+
+{% block form_row -%}
+    <div class="col-auto">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock form_row %}
+
+{%- block form_start -%}
+    {%- do form.setMethodRendered() -%}
+    {% set method = method|upper %}
+    {%- if method in ["GET", "POST"] -%}
+        {% set form_method = method %}
+    {%- else -%}
+        {% set form_method = "POST" %}
+    {%- endif -%}
+<div class="filters">
+    <form{% if name != '' %} name="{{ name }}"{% endif %} method="{{ form_method|lower }}"{% if action != '' %} action="{{ action }}"{% endif %}{{ block('attributes') }}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+        {%- if form_method != method -%}
+            <input type="hidden" name="_method" value="{{ method }}" />
+        {%- endif -%}
+        <div class="row">
+            {%- endblock form_start -%}
+
+            {%- block form_end -%}
+            {%- if not render_rest is defined or render_rest -%}
+                {{ form_rest(form) }}
+            {%- endif -%}
+            <div class="col-2">
+                <button class="btn btn-outline-secondary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{%- endblock form_end -%}
+
+{%- block form_widget_compound -%}
+    {%- if form is rootform -%}
+        {{ form_errors(form) }}
+    {%- endif -%}
+    {{- block('form_rows') -}}
+    {{- form_rest(form) -}}
+{%- endblock form_widget_compound -%}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Planeurs du CVVE Bailleau - Club de planeur du Centre-Val de Loire{% endblock %}
+
+{% block container %}
+    <h1>Administration</h1>
+    <div class="row" id="admin">
+        <div class="col-12 col-md-4">
+            <a class="card" href="{{ path('admin_aircraft') }}">
+                <div class="card-body text-center">
+                    <i class="fas fa-plane fa-3x mb-4"></i>
+                    <h2>{{ stats.aircrafts }} machines</h2>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-4">
+            <a class="card" href="#">
+                <div class="card-body text-center">
+                    <i class="fas fa-user fa-3x mb-4"></i>
+                    <h2>{{ stats.users }} pilotes</h2>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-4">
+            <a class="card" href="#">
+                <div class="card-body text-center">
+                    <i class="fas fa-file fa-3x mb-4"></i>
+                    <h2>{{ stats.documents }} documents</h2>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-4">
+            <a class="card" href="{{ path('admin_menu') }}">
+                <div class="card-body text-center">
+                    <i class="fas fa-file fa-3x mb-4"></i>
+                    <h2>{{ stats.menus }} menus</h2>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-4">
+            <a class="card" href="{{ path('admin_page') }}">
+                <div class="card-body text-center">
+                    <i class="fas fa-book fa-3x mb-4"></i>
+                    <h2>{{ stats.pages }} pages</h2>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-4">
+            <a class="card" href="#">
+                <div class="card-body text-center">
+                    <i class="fas fa-newspaper fa-3x mb-4"></i>
+                    <h2>{{ stats.posts }} actualités</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Machines - Administration{% endblock %}
+
+{% block container %}
+    <h1>Machines</h1>
+    <div class="table-responsive card">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>Numéro de concours</th>
+                    <th>Modèle</th>
+                    <th>License</th>
+                    <th>Type</th>
+                    <th>Documents</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aircraft in aircrafts %}
+                    <tr>
+                        <td>{{ aircraft.competitionNumber }}</td>
+                        <td>{{ aircraft.model }}</td>
+                        <td>{{ aircraft.license }}</td>
+                        <td>{{ ('aircraft.type.' ~ aircraft.type) | trans }}</td>
+                        <td>{{ aircraft.documents.count() }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('admin_aircraft_edit', {'aircraft': aircraft.id}) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            <em>Aucune machine</em>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="card-footer text-end">
+            <a href="{{ path('admin_aircraft_add') }}" class="btn btn-success btn-sm">
+                <i class="fas fa-plus"></i> Ajouter
+            </a>
+        </div>
+    </div>
+{% endblock %}

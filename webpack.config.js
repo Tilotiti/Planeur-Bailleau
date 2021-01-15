@@ -9,6 +9,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('index', './assets/js/index.js')
+    .addEntry('admin', './assets/js/admin.js')
 
     .copyFiles({
         from: './assets/images',
@@ -25,6 +26,7 @@ Encore
     .enableVersioning(Encore.isProduction())
     .enableSassLoader()
     .enableIntegrityHashes(Encore.isProduction())
+    .autoProvidejQuery()
 
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
