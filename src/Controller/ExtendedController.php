@@ -41,7 +41,7 @@ class ExtendedController extends AbstractController
         $request = $this->container->get('request_stack')->getCurrentRequest();
         $router = $this->container->get('router');
 
-        $current = $request->server->get('REQUEST_URI', $router->generate('app'));
+        $current = $request->server->get('REQUEST_URI', $router->generate('index'));
 
         return $this->redirect($current);
     }

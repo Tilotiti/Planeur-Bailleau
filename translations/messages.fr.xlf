@@ -183,5 +183,61 @@ Plusieurs codes sont disponibles :<br>
 <ul><li><code>home</code> : Page d'accueil</li><li><code>contact</code> : Page "Contactez-nous"</li></ul>]]></target>
       </segment>
     </unit>
+    <unit id="W3e0_BZ" name="contact.legal">
+      <segment>
+        <source>contact.legal</source>
+        <target><![CDATA[Les informations recueillies font l’objet d’un traitement informatique destiné à pouvoir vous contacter pour vous répondre. Les destinataires des données sont les membres du comité de direction de l'association.<br>
+Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en vous adressant au secrétariat de l'association.<br>
+Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.]]></target>
+      </segment>
+    </unit>
+    <unit id="i9pMoH0" name="contact.email.label">
+      <segment>
+        <source>contact.email.label</source>
+        <target>Votre e-mail</target>
+      </segment>
+    </unit>
+    <unit id="xv4MLXV" name="contact.phone.label">
+      <segment>
+        <source>contact.phone.label</source>
+        <target>Votre numéro de téléphone</target>
+      </segment>
+    </unit>
+    <unit id="bmOOCe3" name="contact.name.label">
+      <segment>
+        <source>contact.name.label</source>
+        <target>Votre nom</target>
+      </segment>
+    </unit>
+    <unit id="tH8q5dK" name="contact.content.label">
+      <segment>
+        <source>contact.content.label</source>
+        <target>Votre message</target>
+      </segment>
+    </unit>
+    <unit id="kDJfjKX" name="contact.send">
+      <segment>
+        <source>contact.send</source>
+        <target>Votre message</target>
+      </segment>
+    </unit>
+    <unit id="EyQcQUB" name="contact.intro">
+      <segment>
+        <source>contact.intro</source>
+        <target>N'hésitez pas à nous envoyer un message, un membre de l'association vous répondra dès que possible.</target>
+      </segment>
+    </unit>
+    <unit id="0">
+      <segment>
+        <source>contact.error</source>
+        <target>Une erreur s'est produite, votre message n'a pu être envoyé.</target>
+      </segment>
+    </unit>
+    <unit id="1">
+      <segment>
+        <source>contact.success</source>
+        <target>Votre message a bien été envoyé.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

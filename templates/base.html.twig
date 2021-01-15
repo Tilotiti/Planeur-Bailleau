@@ -52,7 +52,7 @@
                         <a class="nav-link" href="{{ path('contact') }}">{{ 'nav.contact' | trans }}</a>
                     </li>
                 </ul>
-                <div class="d-flex">
+                <div class="d-flex align-items-center">
                     <span class="me-auto me-lg-4 mt-1 ms-4">
                         <a href="{{ path('index', {'_locale': 'fr'}) }}">
                             🇫🇷
@@ -64,10 +64,12 @@
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         {% if is_granted('ROLE_ADMIN') %}
                             <a href="{{ path('admin') }}" class="btn me-2 {{ app.request.get('_route') starts with 'admin' ? 'btn-primary' : 'btn-outline-primary' }}">
-                                {{ 'nav.admin' | trans }}
+                                <i class="fas fa-university"></i>
                             </a>
                         {% endif %}
-                        <a href="#" class="btn btn-outline-primary">{{ 'nav.profil' | trans }}</a>
+                        <a href="#" class="btn btn-outline-primary">
+                            <i class="fas fa-user"></i>
+                        </a>
                     {% else %}
                         <a href="{{ path('app_login') }}" class="btn btn-outline-primary">{{ 'nav.login' | trans }}</a>
                     {% endif %}

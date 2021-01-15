@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block page %}
+    <div id="map"></div>
+    <div class="container">
+        {{ page.content | raw }}
+        <hr>
+        <div class="row justify-content-center mt-4">
+            <div class="col col-md-10 col-lg-8 col-xl-6">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {{ form_start(form) }}
+                <p>{{ 'contact.intro' | trans }}</p>
+                {{ form_rest(form) }}
+                <button class="brn btn-primary btn">
+                    <i class="fas fa-envelope me-2"></i> {{ 'contact.send' | trans }}
+                </button>
+                {{ form_end(form) }}
+                <p class="mt-4 text-legal">{{ 'contact.legal' | trans | raw }}</p>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('contact') }}
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('contact') }}
+{% endblock %}

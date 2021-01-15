@@ -22,7 +22,7 @@
                 {% for page in pages %}
                     <tr>
                         <td>{{ page.title }}</td>
-                        <td>{{ page.menu ? page.menu.title : 'Acceuil' }}</td>
+                        <td>{{ page.menu ? page.menu.title : ( 'nav.home' | trans) }}</td>
                         <td>{{ page.createdAt | format_datetime('medium', 'short') }}</td>
                         <td>{{ page.updatedAt | format_datetime('medium', 'short') }}</td>
                         <td class="text-end">

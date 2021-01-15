@@ -1,0 +1,9 @@
+<p>Bonjour,</p>
+<p>Un nouveau message vient d'être envoyé depuis le site <a href="{{ url('index') }}">planeur-bailleau.org</a>.</p>
+<blockquote>
+    <strong>{{ contact.name }}</strong><br>
+    <small>{{ contact.email }} {{ contact.phone ? '- ' ~ contact.phone }}</small><br>
+    <p>{{ contact.content | nl2br }}</p>
+</blockquote>
+<p><em>Vous recevez ce message car vous êtes administrateur de ce site.</em></p>
+<p>Bisous</p>

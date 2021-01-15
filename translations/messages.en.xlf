@@ -25,5 +25,11 @@
         <target>Sign in</target>
       </segment>
     </unit>
+      <unit id="0">
+          <segment>
+              <source>contact.error</source>
+              <target>messages</target>
+          </segment>
+      </unit>
   </file>
 </xliff>

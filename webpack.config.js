@@ -10,6 +10,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('index', './assets/js/index.js')
     .addEntry('admin', './assets/js/admin.js')
+    .addEntry('contact', './assets/js/contact.js')
 
     .copyFiles({
         from: './assets/images',

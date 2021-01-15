@@ -4,7 +4,7 @@
     <unit id="VYTR44p" name="nav.home">
       <segment>
         <source>nav.home</source>
-        <target>Acceuil</target>
+        <target>Accueil</target>
       </segment>
     </unit>
     <unit id="UYazUdf" name="nav.news">
