@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Suppression de la base de donnée"
+dropdb planeur-bailleau --u postgres
+
+echo "Importation de la base de donnée de production"
+PGUSER=postgres heroku pg:pull DATABASE_URL planeur-bailleau --app planeur-bailleau --exclude-table-data "sessions"
+
+echo "Lancement de l'application"
+bin/release
