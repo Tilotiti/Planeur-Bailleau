@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'nav.post' | trans }}{% endblock %}
+{% block title %}{{ 'nav.post' | trans }} - {{ parent() }}{% endblock %}
 
 {% block container %}
     <h1>{{ 'nav.post' | trans }}</h1>
