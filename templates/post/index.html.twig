@@ -11,7 +11,7 @@
                         '%name%': post.user
                     }) }} - {{ post.createdAt | format_datetime('medium', 'short') }}</div>
                 <h2>{{ post.title }}</h2>
-                <p>{{ post.content | striptags | u.wordwrap(20) }}</p>
+                <p>{{ post.content | striptags | u.truncate(10, '...', false)  }}</p>
                 <a href="{{ path('post_view', {
                     'post': post.id,
                     'code': post.code
