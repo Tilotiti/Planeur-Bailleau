@@ -341,5 +341,17 @@ Vous pouvez également, pour des motifs légitimes, vous opposer au traitement d
         <target>Administrateur</target>
       </segment>
     </unit>
+    <unit id="aCzmiL6" name="nav.account">
+      <segment>
+        <source>nav.account</source>
+        <target>Profil</target>
+      </segment>
+    </unit>
+    <unit id="0">
+      <segment>
+        <source>user.success</source>
+        <target>Votre profil a été mis à jour</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

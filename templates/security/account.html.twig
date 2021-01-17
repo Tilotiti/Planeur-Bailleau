@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'nav.account' | trans }}{% endblock %}
+
+{% block container %}
+    <div class="row justify-content-center mt-4">
+        <div class="col col-md-8 col-lg-6 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>{{ 'nav.account' | trans }}</h3>
+                    {{ form_start(form) }}
+                        {{ form_rest(form) }}
+                        <div class="form-group d-grid gap-2">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save fa-w-1 me-2"></i> Enregistrer
+                            </button>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

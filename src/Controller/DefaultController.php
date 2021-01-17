@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
@@ -98,6 +99,10 @@ class DefaultController extends ExtendedController
     public function shop(): Response
     {
         $page = $this->pageRepository->findOneByCode('shop');
+
+        if(!$page) {
+            throw new NotFoundHttpException();
+        }
 
         return $this->render('default/page.html.twig', [
             'page' => $page,

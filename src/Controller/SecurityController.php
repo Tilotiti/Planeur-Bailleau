@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Password;
+use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,8 +23,9 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class SecurityController extends AbstractController
+class SecurityController extends ExtendedController
 {
     /**
      * @var EntityManagerInterface
@@ -52,6 +55,10 @@ class SecurityController extends AbstractController
      * @var MailerInterface
      */
     private MailerInterface $mailer;
+    /**
+     * @var TranslatorInterface
+     */
+    private TranslatorInterface $translator;
 
     public function __construct(
         EntityManagerInterface $entityManager,
@@ -60,7 +67,8 @@ class SecurityController extends AbstractController
         TokenStorageInterface $tokenStorage,
         SessionInterface $session,
         EventDispatcherInterface $eventDispatcher,
-        MailerInterface $mailer
+        MailerInterface $mailer,
+        TranslatorInterface $translator
     ) {
 
         $this->entityManager = $entityManager;
@@ -70,6 +78,7 @@ class SecurityController extends AbstractController
         $this->session = $session;
         $this->eventDispatcher = $eventDispatcher;
         $this->mailer = $mailer;
+        $this->translator = $translator;
     }
     /**
      * @Route("/login", name="security_login")
@@ -299,6 +308,35 @@ class SecurityController extends AbstractController
 
         return $this->render('security/request.html.twig', [
             'user' => $user,
+        ]);
+    }
+
+    /**
+     * @Route({
+     *     "fr": "/profil",
+     *     "en": "/account"
+     * }, name="security_account")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     * @param Request $request
+     * @return Response
+     */
+    public function user(Request $request): Response {
+        $user = $this->getUser();
+
+        $form = $this->createForm(UserType::class, $user);
+        $form->remove('roles');
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $this->entityManager->flush();
+
+            $this->addFlash('success', $this->translator->trans('user.success'));
+            return $this->reload();
+        }
+
+        return $this->render('security/account.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }
