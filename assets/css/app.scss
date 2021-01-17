@@ -12,6 +12,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f3f3f3;
+  font-size: 13px;
 }
 
 header {
@@ -141,4 +142,13 @@ body > .container {
 .text-legal {
   font-size: 10px;
   text-align: justify;
+}
+
+footer {
+  padding: 20px 0;
+
+  img {
+    width: 200px;
+    margin-bottom: 10px;
+  }
 }
