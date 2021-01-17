@@ -20,9 +20,9 @@ if(selectMenu) {
     selectMenu.addEventListener("change", function() {
         if(this.value === '') {
             inputCode.parentElement.classList.remove('d-none')
-            inputCode.value = ''
         } else {
             inputCode.parentElement.classList.add('d-none')
+            inputCode.value = ''
         }
     })
 

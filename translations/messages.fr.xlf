@@ -180,7 +180,7 @@
         <source>page.code.help</source>
         <target><![CDATA[Le code de la page permet de déterminer sa position sur le site.<br>
 Plusieurs codes sont disponibles :<br>
-<ul><li><code>home</code> : Page d'accueil</li><li><code>contact</code> : Page "Contactez-nous"</li></ul>]]></target>
+<ul><li><code>home</code> : Page d'accueil</li><li><code>contact</code> : Page "Contactez-nous"</li><li><code>shop</code> : Page "Boutique"</li></ul>]]></target>
       </segment>
     </unit>
     <unit id="W3e0_BZ" name="contact.legal">
@@ -347,10 +347,22 @@ Vous pouvez également, pour des motifs légitimes, vous opposer au traitement d
         <target>Profil</target>
       </segment>
     </unit>
-    <unit id="0">
+    <unit id="HiXLdHn" name="user.success">
       <segment>
         <source>user.success</source>
         <target>Votre profil a été mis à jour</target>
+      </segment>
+    </unit>
+    <unit id="ZLOXcTi" name="menu.order.label">
+      <segment>
+        <source>menu.order.label</source>
+        <target>Ordre d'affichage</target>
+      </segment>
+    </unit>
+    <unit id="BLO2nfz" name="menu.public.label">
+      <segment>
+        <source>menu.public.label</source>
+        <target>Page ouverte au public ?</target>
       </segment>
     </unit>
   </file>

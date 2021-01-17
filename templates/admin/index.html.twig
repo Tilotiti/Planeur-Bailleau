@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Les Planeurs du CVVE Bailleau - Club de planeur du Centre-Val de Loire{% endblock %}
+{% block title %}Administration{% endblock %}
 
 {% block container %}
     <h1>Administration</h1>
@@ -9,7 +9,7 @@
             <a class="card" href="{{ path('admin_aircraft') }}">
                 <div class="card-body text-center">
                     <i class="fas fa-plane fa-3x mb-4"></i>
-                    <h2>{{ stats.aircrafts }} machines</h2>
+                    <h4>{{ stats.aircrafts }} machines</h4>
                 </div>
             </a>
         </div>
@@ -17,7 +17,7 @@
             <a class="card" href="{{ path('admin_user') }}">
                 <div class="card-body text-center">
                     <i class="fas fa-user fa-3x mb-4"></i>
-                    <h2>{{ stats.users }} utilisateurs</h2>
+                    <h4>{{ stats.users }} utilisateurs</h4>
                 </div>
             </a>
         </div>
@@ -25,7 +25,7 @@
             <a class="card" href="#">
                 <div class="card-body text-center">
                     <i class="fas fa-file fa-3x mb-4"></i>
-                    <h2>{{ stats.documents }} documents</h2>
+                    <h4>{{ stats.documents }} documents</h4>
                 </div>
             </a>
         </div>
@@ -33,7 +33,7 @@
             <a class="card" href="{{ path('admin_menu') }}">
                 <div class="card-body text-center">
                     <i class="fas fa-file fa-3x mb-4"></i>
-                    <h2>{{ stats.menus }} menus</h2>
+                    <h4>{{ stats.menus }} menus</h4>
                 </div>
             </a>
         </div>
@@ -41,7 +41,7 @@
             <a class="card" href="{{ path('admin_page') }}">
                 <div class="card-body text-center">
                     <i class="fas fa-book fa-3x mb-4"></i>
-                    <h2>{{ stats.pages }} pages</h2>
+                    <h4>{{ stats.pages }} pages</h4>
                 </div>
             </a>
         </div>
@@ -49,7 +49,7 @@
             <a class="card" href="{{ path('admin_post') }}">
                 <div class="card-body text-center">
                     <i class="fas fa-newspaper fa-3x mb-4"></i>
-                    <h2>{{ stats.posts }} actualités</h2>
+                    <h4>{{ stats.posts }} actualités</h4>
                 </div>
             </a>
         </div>
