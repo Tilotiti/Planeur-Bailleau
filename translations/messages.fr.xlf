@@ -218,7 +218,7 @@ Vous pouvez également, pour des motifs légitimes, vous opposer au traitement d
     <unit id="kDJfjKX" name="contact.send">
       <segment>
         <source>contact.send</source>
-        <target>Votre message</target>
+        <target>Envoyer</target>
       </segment>
     </unit>
     <unit id="EyQcQUB" name="contact.intro">

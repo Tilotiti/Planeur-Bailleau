@@ -16,7 +16,7 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
-                {{ form_start(form) }}
+                {{ form_start(form, {'attr': {'id': 'form_contact'}}) }}
                 <p>{{ 'contact.intro' | trans }}</p>
                 {{ form_rest(form) }}
                 <button class="brn btn-primary btn">
@@ -32,6 +32,7 @@
 
 {% block js %}
     {{ parent() }}
+    <script src="https://www.google.com/recaptcha/api.js?render=6LedSDcaAAAAAKPyWy6RMngaFbi5HZzFfczrqJhE"></script>
     {{ encore_entry_script_tags('contact') }}
 {% endblock %}
 

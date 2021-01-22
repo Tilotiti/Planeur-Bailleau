@@ -24,3 +24,13 @@ L.marker(place)
     .addTo(map)
     .bindPopup("<b>CVVE Bailleau</b><br>28320 Bailleau-Armenonville<br>France")
     .openPopup()
+
+
+document.getElementById("form_contact").addEventListener('submit', function(e) {
+    e.preventDefault();
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LedSDcaAAAAAKPyWy6RMngaFbi5HZzFfczrqJhE', {action: 'submit'}).then(function(token) {
+            document.getElementById("form_contact").submit();
+        });
+    });
+})
