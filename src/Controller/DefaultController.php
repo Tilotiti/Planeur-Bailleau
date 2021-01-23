@@ -129,14 +129,16 @@ class DefaultController extends ExtendedController
             $this->entityManager->persist($contact);
             $this->entityManager->flush();
 
-            $users = $this->userRepository->findByRole(User::ROLE_ADMIN);
+            //$users = $this->userRepository->findByRole(User::ROLE_ADMIN);
 
             $email = new TemplatedEmail();
             $email->from('contact@planeur-bailleau.org');
+            $email->addTo(new Address('coordination.cvve.bailleau@gmail.com'));
 
+            /*
             foreach($users as $user) {
                 $email->addTo(new Address($user->getEmail()));
-            }
+            }*/
 
             $email->subject('[Planeur-Bailleau.org] Nouveau message');
             $email->htmlTemplate('email/contact.html.twig');
