@@ -58,7 +58,7 @@ class UserController extends ExtendedController
         $filter = $this->createFilter(UserFilter::class);
         $filter->handleRequest($request);
 
-        $users = $this->userRepository->pagination($filter->getData(), $request->query->getInt('user', 1));
+        $users = $this->userRepository->pagination($filter->getData(), $request->query->getInt('page', 1));
 
         return $this->render('admin/user/index.html.twig', [
             'users' => $users,
