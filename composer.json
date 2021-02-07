@@ -14,6 +14,8 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
         "knplabs/doctrine-behaviors": "^2.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "oneup/flysystem-bundle": "^3.5",
         "oro/doctrine-extensions": "^2.0",
         "php-translation/symfony-bundle": "^0.12.1",
         "phpdocumentor/reflection-docblock": "^5.2",

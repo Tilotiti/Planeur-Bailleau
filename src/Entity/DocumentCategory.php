@@ -29,6 +29,12 @@ class DocumentCategory
     private string $title = '';
 
     /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private string $description = '';
+
+    /**
      * @var Collection|ArrayCollection|Document[]
      * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="documentCategory")
      */
@@ -36,6 +42,11 @@ class DocumentCategory
 
     public function __construct() {
         $this->documents = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->getTitle();
     }
 
     /**
@@ -68,6 +79,16 @@ class DocumentCategory
     public function setTitle(string $title): void
     {
         $this->title = $title;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
     }
 
     /**

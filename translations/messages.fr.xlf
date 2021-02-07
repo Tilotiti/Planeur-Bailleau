@@ -365,5 +365,47 @@ Vous pouvez également, pour des motifs légitimes, vous opposer au traitement d
         <target>Page ouverte au public ?</target>
       </segment>
     </unit>
+    <unit id="gzbbWtQ" name="aircraft.label">
+      <segment>
+        <source>aircraft.label</source>
+        <target>Machine</target>
+      </segment>
+    </unit>
+    <unit id="ZRxt5Rp" name="document.file.label">
+      <segment>
+        <source>document.file.label</source>
+        <target>Fichier</target>
+      </segment>
+    </unit>
+    <unit id="OtY9UUi" name="document.url.label">
+      <segment>
+        <source>document.url.label</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="q7GjB8E" name="documentCategory.label">
+      <segment>
+        <source>documentCategory.label</source>
+        <target>Catégorie</target>
+      </segment>
+    </unit>
+    <unit id="lyTlYXV" name="aircraft.none">
+      <segment>
+        <source>aircraft.none</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
+    <unit id="J.uDC3A" name="documentCategory.none">
+      <segment>
+        <source>documentCategory.none</source>
+        <target>Aucune</target>
+      </segment>
+    </unit>
+    <unit id="XYh1gWS" name="documentCategory.title.label">
+      <segment>
+        <source>documentCategory.title.label</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

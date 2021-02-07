@@ -2,36 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Document;
+use App\Entity\DocumentCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
-class DocumentRepository extends ServiceEntityRepository
+class DocumentCategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Document::class);
+        parent::__construct($registry, DocumentCategory::class);
     }
 
     public function search(?array $params = null): Query
     {
-        $dql = $this->createQueryBuilder('document');
+        $dql = $this->createQueryBuilder('documentCategory');
 
         if (!empty($params['title'])) {
-            $dql->andWhere('unaccent(LOWER(document.title)) LIKE unaccent(LOWER(:title))')
+            $dql->andWhere('UNACCENT(LOWER(documentCategory.title)) LIKE UNACCENT(LOWER(:title))')
                 ->setParameter('title', '%' . $params['title'] . '%');
-        }
-
-        if (!empty($params['documentCategory'])) {
-            $dql->andWhere('document.documentCategory = :documentCategory')
-                ->setParameter('documentCategory', $params['documentCategory']);
-        }
-
-        if (!empty($params['aircraft'])) {
-            $dql->andWhere('document.aircraft = :aircraft')
-                ->setParameter('aircraft', $params['aircraft']);
         }
 
         return $dql->getQuery();
@@ -40,7 +30,7 @@ class DocumentRepository extends ServiceEntityRepository
     /**
      * @param array|null $params
      * @param int $page
-     * @return Paginator|Document[]
+     * @return Paginator|DocumentCategory[]
      */
     public function pagination(?array $params = null, int $page = 1): Paginator
     {

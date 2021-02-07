@@ -5,6 +5,8 @@ namespace App\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Document
@@ -47,10 +49,23 @@ class Document
     private \DateTime $updatedAt;
 
     /**
-     * @var DocumentCategory
+     * @var DocumentCategory|null
      * @ORM\ManyToOne(targetEntity="App\Entity\DocumentCategory", inversedBy="documents")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private DocumentCategory $documentCategory;
+    private ?DocumentCategory $documentCategory;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private string $url = '';
+
+    /**
+     * @var UploadedFile|null
+     * @Assert\File(maxSize="100M", mimeTypes={"application/pdf"})
+     */
+    private ?UploadedFile $file = null;
 
     public function __construct() {
         $this->createdAt = new \DateTime();
@@ -135,5 +150,35 @@ class Document
     public function setUpdatedAt(\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getDocumentCategory(): ?DocumentCategory
+    {
+        return $this->documentCategory;
+    }
+
+    public function setDocumentCategory(?DocumentCategory $documentCategory): void
+    {
+        $this->documentCategory = $documentCategory;
+    }
+
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): void
+    {
+        $this->url = $url;
+    }
+
+    public function getFile(): ?UploadedFile
+    {
+        return $this->file;
+    }
+
+    public function setFile(?UploadedFile $file): void
+    {
+        $this->file = $file;
     }
 }

@@ -41,9 +41,14 @@ class PostController extends ExtendedController
 
     /**
      * @Route("", name="admin_post")
+     * @param Request $request
+     * @return Response
      */
-    public function index(): Response {
-        $posts = $this->postRepository->pagination([]);
+    public function index(Request $request): Response {
+        $posts = $this->postRepository->pagination(
+            [],
+            $request->query->getInt('page', 1)
+        );
 
         return $this->render('admin/post/index.html.twig', [
             'posts' => $posts

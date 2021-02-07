@@ -71,3 +71,7 @@ $('.wysiwyg').trumbowyg({
         }
     }
 })
+
+$('a[data-confirm]').on('click', function() {
+    return confirm($(this).attr('data-confirm'))
+})

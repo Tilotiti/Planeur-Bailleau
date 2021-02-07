@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégories de document - Administration{% endblock %}
+
+{% block container %}
+    <h1>Catégories de document</h1>
+    <div class="table-responsive card">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Documents</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for documentCategory in documentCategories %}
+                    <tr>
+                        <td>{{ documentCategory.title }}</td>
+                        <td>{{ documentCategory.documents.count() }}</td>
+                        <td class="text-end">
+                            <a href="{{ path('admin_document_category_edit', {'documentCategory': documentCategory.id}) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="text-center">
+                            <em>Aucune catégorie</em>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="card-footer text-end">
+            <div class="row">
+                <div class="col-12 col-md-6 col-center col-md-start">
+                    {{ pagination(documentCategories) }}
+                </div>
+                <div class="col-12 col-md-6 col-center col-md-end">
+                    <a href="{{ path('admin_document_category_add') }}" class="btn btn-success btn-sm">
+                        <i class="fas fa-plus"></i> Ajouter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

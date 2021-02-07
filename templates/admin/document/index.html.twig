@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Documents - Administration{% endblock %}
+
+{% form_theme filter 'include/form/filter.html.twig' %}
+
+{% block container %}
+    <h1>Documents</h1>
+    {{ form(filter) }}
+    <div class="table-responsive card">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Catégorie</th>
+                    <th>Machine</th>
+                    <th>Création</th>
+                    <th>Mise à jour</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for document in documents %}
+                    <tr>
+                        <td>{{ document.title }}</td>
+                        <td>
+                            {% if document.documentCategory %}
+                                {{ document.documentCategory.title }}
+                            {% else %}
+                                <em>Sans catégorie</em>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if document.aircraft %}
+                                {{ document.aircraft.competitionNumber }} - {{ document.aircraft.license }}
+                            {% else %}
+                                <em>Aucune machine</em>
+                            {% endif %}
+                        </td>
+                        <td>{{ document.createdAt | format_datetime('medium', 'short') }}</td>
+                        <td>{{ document.updatedAt | format_datetime('medium', 'short') }}</td>
+                        <td class="text-end">
+                            <a href="{{ document.url }}" class="btn btn-sm btn-primary" download>
+                                <i class="fas fa-download"></i>
+                            </a>
+                            <a href="{{ path('admin_document_edit', {'document': document.id}) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{{ path('admin_document_delete', {'document': document.id}) }}" class="btn btn-sm btn-danger" data-confirm="Êtes-vous certain de vouloir supprimer ce fichier ? Cette action est irreversible.">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            <em>Aucun document</em>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="card-footer text-end">
+            <div class="row">
+                <div class="col-12 col-md-6 col-center col-md-start">
+                    {{ pagination(documents) }}
+                </div>
+                <div class="col-12 col-md-6 col-center col-md-end">
+                    <a href="{{ path('admin_document_add') }}" class="btn btn-success btn-sm">
+                        <i class="fas fa-plus"></i> Ajouter
+                    </a>
+                    <a href="{{ path('admin_document_category') }}" class="btn btn-primary btn-sm">
+                        <i class="fas fa-list"></i> Catégories
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
