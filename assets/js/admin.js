@@ -12,23 +12,6 @@ import 'trumbowyg/dist/plugins/upload/trumbowyg.upload.min'
 
 $.trumbowyg.svgPath = icons
 
-const selectMenu = document.getElementById('page_menu')
-
-if(selectMenu) {
-    const inputCode = document.getElementById('page_code')
-
-    selectMenu.addEventListener("change", function() {
-        if(this.value === '') {
-            inputCode.parentElement.classList.remove('d-none')
-        } else {
-            inputCode.parentElement.classList.add('d-none')
-            inputCode.value = ''
-        }
-    })
-
-    selectMenu.dispatchEvent(new Event('change'))
-}
-
 $('.wysiwyg').trumbowyg({
     lang: 'fr',
     btnsDef: {

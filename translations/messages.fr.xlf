@@ -180,7 +180,7 @@
         <source>page.code.help</source>
         <target><![CDATA[Le code de la page permet de déterminer sa position sur le site.<br>
 Plusieurs codes sont disponibles :<br>
-<ul><li><code>home</code> : Page d'accueil</li><li><code>contact</code> : Page "Contactez-nous"</li><li><code>shop</code> : Page "Boutique"</li></ul>]]></target>
+<ul><li><code>home</code> : Page d'accueil</li><li><code>contact</code> : Page "Contactez-nous"</li><li><code>shop</code> : Page "Boutique"</li><li><code>aircrafts</code> : Page "Nos machines"</li><li><code>documents</code> : Page "Documents"</li></ul>]]></target>
       </segment>
     </unit>
     <unit id="W3e0_BZ" name="contact.legal">
