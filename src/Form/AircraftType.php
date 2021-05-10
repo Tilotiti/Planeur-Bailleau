@@ -34,7 +34,8 @@ class AircraftType extends AbstractType
             ])
             ->add('picture', FileType::class, [
                 'label' => 'aircraft.picture.label',
-                'upload' => 'default'
+                'upload' => 'default',
+                'required' => false
             ])
         ;
     }
