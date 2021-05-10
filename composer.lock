@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "739dfddce24a46b5228250d20468d4ea",
+    "content-hash": "287f4c9056f14fb02179d0ce6e1a1aa6",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -943,16 +943,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "a08bc3b4d8567cdff05e89b272ba1e06e9d71c21"
+                "reference": "d6b3c37804539a24ba8a7d647a6144cab2f13242"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/a08bc3b4d8567cdff05e89b272ba1e06e9d71c21",
-                "reference": "a08bc3b4d8567cdff05e89b272ba1e06e9d71c21",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/d6b3c37804539a24ba8a7d647a6144cab2f13242",
+                "reference": "d6b3c37804539a24ba8a7d647a6144cab2f13242",
                 "shasum": ""
             },
             "require": {
@@ -982,7 +982,7 @@
                 "symfony/phpunit-bridge": "^5.2",
                 "symfony/property-info": "^4.3.3|^5.0",
                 "symfony/proxy-manager-bridge": "^3.4|^4.3.3|^5.0",
-                "symfony/security-bundle": "^4.4|5.0",
+                "symfony/security-bundle": "^4.4|^5.0",
                 "symfony/twig-bridge": "^3.4.30|^4.3.3|^5.0",
                 "symfony/validator": "^3.4.30|^4.3.3|^5.0",
                 "symfony/web-profiler-bundle": "^3.4.30|^4.3.3|^5.0",
@@ -1033,7 +1033,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.3.1"
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.3.2"
             },
             "funding": [
                 {
@@ -1049,7 +1049,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-05T14:21:02+00:00"
+            "time": "2021-05-06T19:21:22+00:00"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -9235,16 +9235,16 @@
         },
         {
             "name": "tiloweb/uploaded-file-type-bundle",
-            "version": "v0.4",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tiloweb/uploaded-file-type-bundle.git",
-                "reference": "5648a750a24d44ae646a4f97256557103e8c4821"
+                "reference": "39c15c984f398c82b4186eb23cf73c9ab46d55d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tiloweb/uploaded-file-type-bundle/zipball/5648a750a24d44ae646a4f97256557103e8c4821",
-                "reference": "5648a750a24d44ae646a4f97256557103e8c4821",
+                "url": "https://api.github.com/repos/Tiloweb/uploaded-file-type-bundle/zipball/39c15c984f398c82b4186eb23cf73c9ab46d55d9",
+                "reference": "39c15c984f398c82b4186eb23cf73c9ab46d55d9",
                 "shasum": ""
             },
             "require": {
@@ -9255,6 +9255,7 @@
                 "symfony/twig-bundle": "^5.2",
                 "symfony/yaml": "^5.2"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
@@ -9274,9 +9275,9 @@
             "description": "A Symfony bundle that handle the form FileType upload and store the URL for you",
             "support": {
                 "issues": "https://github.com/Tiloweb/uploaded-file-type-bundle/issues",
-                "source": "https://github.com/Tiloweb/uploaded-file-type-bundle/tree/v0.4"
+                "source": "https://github.com/Tiloweb/uploaded-file-type-bundle/tree/main"
             },
-            "time": "2021-05-10T08:58:59+00:00"
+            "time": "2021-05-10T10:27:00+00:00"
         },
         {
             "name": "twig/extra-bundle",
@@ -10173,7 +10174,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "tiloweb/uploaded-file-type-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

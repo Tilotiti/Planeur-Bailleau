@@ -407,5 +407,29 @@ Vous pouvez également, pour des motifs légitimes, vous opposer au traitement d
         <target>Titre</target>
       </segment>
     </unit>
+    <unit id="0N9tfpA" name="document.label">
+      <segment>
+        <source>document.label</source>
+        <target>Document</target>
+      </segment>
+    </unit>
+    <unit id="0WSekwO" name="document.createdAt.label">
+      <segment>
+        <source>document.createdAt.label</source>
+        <target>Création</target>
+      </segment>
+    </unit>
+    <unit id="tWy7GtV" name="document.updatedAt.label">
+      <segment>
+        <source>document.updatedAt.label</source>
+        <target>Mise à jour</target>
+      </segment>
+    </unit>
+    <unit id="3049_y7" name="aircraft.picture.label">
+      <segment>
+        <source>aircraft.picture.label</source>
+        <target>Photo</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

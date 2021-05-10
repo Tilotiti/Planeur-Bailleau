@@ -47,7 +47,7 @@
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.2.*",
         "tiloweb/pagination-bundle": "^1.5",
-        "tiloweb/uploaded-file-type-bundle": "^0.4.0",
+        "tiloweb/uploaded-file-type-bundle": "dev-main",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/intl-extra": "^3.2",
         "twig/string-extra": "^3.2",

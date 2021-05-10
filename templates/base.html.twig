@@ -36,7 +36,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="menu_{{ menu.id }}">
                                 {% for page in menu.pages %}
-                                    {% if page.code and page.code in ['aircrafts'] %}
+                                    {% if page.code and page.code in ['aircrafts', 'documents'] %}
                                         <a class="dropdown-item" href="{{ path(page.code) }}">{{ page.title }}</a>
                                     {% elseif not page.code %}
                                         <a class="dropdown-item" href="{{ path('page', {

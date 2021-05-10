@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.title }} - {{ parent() }}{% endblock %}
+
+{% block container %}
+    <h1>{{ page.title }}</h1>
+    {{ page.content | raw }}
+    {% for category in categories | filter(c => c.documents.count() > 0) %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2 class="h5 mb-0">{{ category.title }}</h2>
+            </div>
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th>{{ 'document.label' | trans }}</th>
+                        <th width="150px">{{ 'document.createdAt.label' | trans }}</th>
+                        <th width="150px">{{ 'document.updatedAt.label' | trans }}</th>
+                        <th width="50px"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for document in category.documents %}
+                        <tr>
+                            <td>{{ document.title }}</td>
+                            <td>{{ document.createdAt | date('d/m/Y') }}</td>
+                            <td>{{ document.updatedAt | date('d/m/Y') }}</td>
+                            <td class="text-end">
+                                <a href="{{ document.url }}" download target="_blank" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+{% endblock %}
