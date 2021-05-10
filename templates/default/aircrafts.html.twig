@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.title }} - {{ parent() }}{% endblock %}
+
+{% block container %}
+    <h1>{{ page.title }}</h1>
+    {{ page.content | raw }}
+
+    <div class="row">
+        {% for aircraft in aircrafts %}
+            <div class="col-12 col-md-6">
+                <div class="card mb-2">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-6">
+                                <h2 class="card-title mb-0 h5">
+                                    {{ aircraft.competitionNumber }}
+                                    - {{ aircraft.model }}
+                                </h2>
+                            </div>
+                            <div class="col-6 text-end">
+                                {% for document in aircraft.documents %}
+                                    <a href="{{ document.url }}" class="btn btn-outline-secondary btn-sm me-2 pe-2 po-2 pt-0 pb-0" target="_blank" download>
+                                        <i class="fas fa-download me-2"></i> {{ document.title }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="ratio ratio-4x3">
+                                    {% if aircraft.picture %}
+                                        <img src="{{ aircraft.picture }}" class="img-thumbnail">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <dl class="row mb-0">
+                                    <dt class="col-5">{{ 'aircraft.type.label' | trans }}</dt>
+                                    <dd class="col-7">{{ ('aircraft.type.' ~ aircraft.type) | trans }}</dd>
+
+                                    <dt class="col-5">{{ 'aircraft.model.label' | trans }}</dt>
+                                    <dd class="col-7">{{ aircraft.model }}</dd>
+
+                                    <dt class="col-5">{{ 'aircraft.competitionNumber.label' | trans }}</dt>
+                                    <dd class="col-7">{{ aircraft.competitionNumber }}</dd>
+
+                                    <dt class="col-5 mb-0">{{ 'aircraft.license.label' | trans }}</dt>
+                                    <dd class="col-7 mb-0">{{ aircraft.license }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p class="text-center">{{ 'empty' | trans }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Aircraft;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -30,6 +31,10 @@ class AircraftType extends AbstractType
                     'aircraft.type.'.Aircraft::TYPE_BI => Aircraft::TYPE_BI,
                     'aircraft.type.'.Aircraft::TYPE_TOWING => Aircraft::TYPE_TOWING,
                 ]
+            ])
+            ->add('picture', FileType::class, [
+                'label' => 'aircraft.picture.label',
+                'upload' => 'default'
             ])
         ;
     }

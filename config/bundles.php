@@ -19,4 +19,5 @@ return [
     A2lix\TranslationFormBundle\A2lixTranslationFormBundle::class => ['all' => true],
     Tiloweb\PaginationBundle\TilowebPaginationBundle::class => ['all' => true],
     Oneup\FlysystemBundle\OneupFlysystemBundle::class => ['all' => true],
+    Tiloweb\UploadedFileTypeBundle\UploadedFileTypeBundle::class => ['all' => true],
 ];

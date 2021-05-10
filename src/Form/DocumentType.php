@@ -49,7 +49,7 @@ class DocumentType extends AbstractType
                 'choice_label' => function (Aircraft $aircraft) {
                     $type = $this->translator->trans('aircraft.type.'.$aircraft->getType());
 
-                    return $aircraft->getCompetitionNumber().' - '.$aircraft->getLicense().' ('.$type.')';
+                    return $aircraft->getCompetitionNumber().' - '.$aircraft->getModel().' - '.$aircraft->getLicense().' ('.$type.')';
                 }
             ])
             ->add('documentCategory', EntityType::class, [

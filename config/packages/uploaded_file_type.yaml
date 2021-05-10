@@ -1,0 +1,6 @@
+uploaded_file_type:
+  configurations:
+    default:
+      filesystem: 'oneup_flysystem.s3_filesystem_filesystem'
+      base_uri: 'https://bailleau.s3.eu-west-3.amazonaws.com'
+      path: '/upload'

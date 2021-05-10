@@ -641,6 +641,9 @@
     "tiloweb/pagination-bundle": {
         "version": "v1.5.1"
     },
+    "tiloweb/uploaded-file-type-bundle": {
+        "version": "v0.4"
+    },
     "twig/extra-bundle": {
         "version": "v3.0.5"
     },

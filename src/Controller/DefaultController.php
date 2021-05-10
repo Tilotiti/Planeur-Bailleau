@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Entity\Page;
-use App\Entity\User;
 use App\Form\ContactType;
 use App\Repository\PageRepository;
 use App\Repository\UserRepository;
@@ -27,40 +26,24 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class DefaultController extends ExtendedController
 {
-    /**
-     * @var PageRepository
-     */
     private PageRepository $pageRepository;
-    /**
-     * @var EntityManagerInterface
-     */
     private EntityManagerInterface $entityManager;
-    /**
-     * @var UserRepository
-     */
-    private UserRepository $userRepository;
-    /**
-     * @var MailerInterface
-     */
     private MailerInterface $mailer;
-    /**
-     * @var TranslatorInterface
-     */
     private TranslatorInterface $translator;
 
     public function __construct(
         PageRepository $pageRepository,
-        UserRepository $userRepository,
         EntityManagerInterface $entityManager,
         MailerInterface $mailer,
         TranslatorInterface $translator
-    ) {
+    )
+    {
         $this->pageRepository = $pageRepository;
-        $this->userRepository = $userRepository;
         $this->entityManager = $entityManager;
         $this->mailer = $mailer;
         $this->translator = $translator;
     }
+
     /**
      * @Route("", name="index")
      */
@@ -78,15 +61,16 @@ class DefaultController extends ExtendedController
      * @param Page $page
      * @return Response
      */
-    public function page(Page $page): Response {
-        if($page->getMenu()) {
-            if(!$page->getMenu()->isPublic() && !$this->isGranted('IS_AUTHENTICATED_FULLY')) {
+    public function page(Page $page): Response
+    {
+        if ($page->getMenu()) {
+            if (!$page->getMenu()->isPublic() && !$this->isGranted('IS_AUTHENTICATED_FULLY')) {
                 throw new AccessDeniedException();
             }
         }
 
         return $this->render('default/page.html.twig', [
-            'page' => $page
+            'page' => $page,
         ]);
     }
 
@@ -100,7 +84,7 @@ class DefaultController extends ExtendedController
     {
         $page = $this->pageRepository->findOneByCode('shop');
 
-        if(!$page) {
+        if (!$page) {
             throw new NotFoundHttpException();
         }
 
@@ -125,7 +109,7 @@ class DefaultController extends ExtendedController
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->persist($contact);
             $this->entityManager->flush();
 
@@ -143,7 +127,7 @@ class DefaultController extends ExtendedController
             $email->subject('[Planeur-Bailleau.org] Nouveau message');
             $email->htmlTemplate('email/contact.html.twig');
             $email->context([
-                'contact' => $contact
+                'contact' => $contact,
             ]);
 
             try {
@@ -159,7 +143,7 @@ class DefaultController extends ExtendedController
 
         return $this->render('default/contact.html.twig', [
             'page' => $page,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 }

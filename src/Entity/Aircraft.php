@@ -51,6 +51,12 @@ class Aircraft
     const TYPE_TOWING = 'towing';
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private ?string $picture = null;
+
+    /**
      * @var Collection|Document[]
      * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="aircraft")
      */
@@ -139,6 +145,16 @@ class Aircraft
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): void
+    {
+        $this->picture = $picture;
     }
 
     /**
