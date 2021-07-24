@@ -8,6 +8,7 @@ use App\Form\ContactType;
 use App\Repository\PageRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use ReCaptcha\ReCaptcha;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -110,6 +111,19 @@ class DefaultController extends ExtendedController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $recaptcha = new ReCaptcha('6LcfjbkbAAAAAEPoOQCCqBQjQR0sxD1wXnaPUB-T');
+
+            $resp = $recaptcha->verify(
+                $request->request->get('g-recaptcha-response'),
+                $request->getClientIp()
+            );
+
+            if (!$resp->isSuccess()) {
+                $this->addFlash('error', $this->translator->trans("contact.error"));
+                return $this->reload();
+            }
+
+
             $this->entityManager->persist($contact);
             $this->entityManager->flush();
 

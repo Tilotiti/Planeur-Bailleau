@@ -13,6 +13,7 @@
         "doctrine/doctrine-bundle": "^2.1",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
+        "google/recaptcha": "^1.2",
         "knplabs/doctrine-behaviors": "^2.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "oneup/flysystem-bundle": "^3.5",

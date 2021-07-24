@@ -19,7 +19,11 @@
                 {{ form_start(form, {'attr': {'id': 'form_contact'}}) }}
                 <p>{{ 'contact.intro' | trans }}</p>
                 {{ form_rest(form) }}
-                <button class="brn btn-primary btn">
+                <div class="g-recaptcha"
+                     data-sitekey="6LcfjbkbAAAAADlwu_ahfmY_UdIx9tc-Fr4-UXC3"
+                     data-callback='onSubmit'
+                     data-action='submit'></div>
+                <button class="btn btn-primary">
                     <i class="fas fa-envelope me-2"></i> {{ 'contact.send' | trans }}
                 </button>
                 {{ form_end(form) }}
@@ -32,7 +36,7 @@
 
 {% block js %}
     {{ parent() }}
-    <script src="https://www.google.com/recaptcha/api.js?render=6LedSDcaAAAAAKPyWy6RMngaFbi5HZzFfczrqJhE"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     {{ encore_entry_script_tags('contact') }}
 {% endblock %}
 
