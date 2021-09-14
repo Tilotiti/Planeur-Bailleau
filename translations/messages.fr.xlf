@@ -431,5 +431,11 @@ Vous pouvez également, pour des motifs légitimes, vous opposer au traitement d
         <target>Photo</target>
       </segment>
     </unit>
+    <unit id="uGUf2HB" name="post.code.label">
+      <segment>
+        <source>post.code.label</source>
+        <target>URL de page</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

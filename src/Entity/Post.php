@@ -96,6 +96,10 @@ class Post
     public function setTitle(string $title): void
     {
         $this->title = $title;
+
+        if(!$this->code) {
+            $this->setCode($title);
+        }
     }
 
     /**
@@ -103,18 +107,18 @@ class Post
      */
     public function getCode(): string
     {
-        if(!$this->code) {
-            $this->setCode($this->getTitle());
-        }
-
         return $this->code;
     }
 
     /**
      * @param string $code
      */
-    public function setCode(string $code): void
+    public function setCode(?string $code): void
     {
+        if(!$code) {
+            return;
+        }
+
         $code = (new Slugify())->slugify($code);
 
         $this->code = $code;
