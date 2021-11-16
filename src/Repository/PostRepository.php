@@ -26,7 +26,7 @@ class PostRepository extends ServiceEntityRepository
 
         if(!empty($params['locale'])) {
             $dql->andWhere('post.locale = :locale')
-                ->setParameter('locale', $params['local']);
+                ->setParameter('locale', $params['locale']);
         }
 
         $dql->orderBy('post.createdAt', 'DESC');

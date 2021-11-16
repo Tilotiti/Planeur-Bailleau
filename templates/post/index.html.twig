@@ -5,7 +5,7 @@
 {% block container %}
     <h1>{{ 'nav.post' | trans }}</h1>
     {% for post in posts %}
-        <div class="card">
+        <div class="card mb-2">
             <div class="card-body">
                 <div class="float-end">{{ 'post.user.label' | trans({
                         '%name%': post.user
