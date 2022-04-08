@@ -29,14 +29,6 @@ Encore
     .enableIntegrityHashes(Encore.isProduction())
     .autoProvidejQuery()
 
-    .configureDevServerOptions(options => {
-        options.https = {
-            pfx: path.join(process.env.HOME, '.symfony/certs/default.p12'),
-        }
-
-        delete options.client;
-    })
-
     .enableSassLoader((options) => {
         options.sourceMap = true;
         options.sassOptions = {

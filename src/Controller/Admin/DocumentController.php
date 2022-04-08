@@ -91,8 +91,8 @@ class DocumentController extends ExtendedController
             $this->entityManager->persist($document);
             $this->entityManager->flush();
 
-            if($document->getFile()) {
-                $file = $document->getFile();
+            if($form->get('file')->getData()) {
+                $file = $form->get('file')->getData();
 
                 $stream = fopen($file->getRealPath(), 'r+');
 
