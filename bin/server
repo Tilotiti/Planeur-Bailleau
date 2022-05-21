@@ -4,8 +4,8 @@ function cleanup {
   symfony server:stop
 }
 
-trap cleanup INT TERM EXIT
+trap cleanup INT TERM EXIT SIGHUP
 
-symfony serve -d
+yarn dev-server &
 sleep 5 && symfony open:local &
-yarn dev-server
+symfony serve
