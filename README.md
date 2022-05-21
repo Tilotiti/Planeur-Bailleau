@@ -1,5 +1,7 @@
 # Planeur-Bailleau
 
+Hey ! Tu comprends rien à la documentation qui suit ? C'est normal, c'est un métier. Mais n'hésite pas à venir me voir pour que je t'explique les bases et que l'on fasse en sorte que, toi aussi, tu puisses contribuer ... 
+
 ## Requirements
 
     php >= 7.4
