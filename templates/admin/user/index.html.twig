@@ -21,7 +21,7 @@
             </thead>
             <tbody>
                 {% for user in users %}
-                    <tr>
+                    <tr class="{{ not user.accepted ? 'bg-danger' : '' }}">
                         <td>{{ user.fullName }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.hasRole('ROLE_ADMIN') ? 'Administrateur' : 'Pilote' }}</td>
@@ -31,6 +31,15 @@
                             <a href="{{ path('admin_user_edit', {'user': user.id}) }}" class="btn btn-sm btn-primary">
                                 <i class="fas fa-edit"></i>
                             </a>
+                            {% if user.accepted %}
+                                <a href="{{ path('admin_user_ban', {'user': user.id}) }}" class="btn btn-sm btn-danger">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            {% else %}
+                                <a href="{{ path('admin_user_accept', {'user': user.id}) }}" class="btn btn-sm btn-success">
+                                    <i class="fa fa-check"></i>
+                                </a>
+                            {% endif %}
                         </td>
                     </tr>
                 {% else %}

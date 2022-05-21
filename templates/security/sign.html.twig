@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'nav.sign' | trans }}{% endblock %}
+
+{% block container %}
+    <div class="row justify-content-center mt-4">
+        <div class="col col-md-8 col-lg-6 col-xl-4">
+            <form method="post" class="card">
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    {{ form_rest(form) }}
+                    <p><small>L'inscription est soumise à validation de notre super-héroïne du secrétariat. Votre demande sera prise en compte en quelques jours. Si vous n'avez pas de réponse au bout d'une semaine, n'hésitez pas à soudoyer Léna au secrédariat avec une boîte de chocolat. Si malgrés ça vous n'avez toujours pas de réponse, c'est que vous n'êtes pas inscrit au club ou que votre dette dépasse le PIB de la creuse.</small></p>
+                    {{ form_end(form) }}
+                    <button class="btn btn-primary btn-block w-100">
+                        <i class="fas fa-envelope me-2"></i> S'inscire
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

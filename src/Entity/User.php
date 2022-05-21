@@ -18,7 +18,7 @@ class User implements UserInterface
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
      */
-    private int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -76,6 +76,11 @@ class User implements UserInterface
      */
     private ?\DateTime $connectedAt = null;
 
+    /**
+     * @ORM\Column(type="boolean", options={"default": true})
+     */
+    private bool $accepted = false;
+
     public function __construct() {
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
@@ -88,7 +93,7 @@ class User implements UserInterface
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -282,5 +287,21 @@ class User implements UserInterface
     public function setConnectedAt(?\DateTime $connectedAt): void
     {
         $this->connectedAt = $connectedAt;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAccepted(): bool
+    {
+        return $this->accepted;
+    }
+
+    /**
+     * @param bool $accepted
+     */
+    public function setAccepted(bool $accepted): void
+    {
+        $this->accepted = $accepted;
     }
 }

@@ -1,0 +1,16 @@
+<p>Hello la meilleure des secrétaires du monde,</p>
+<p>Un nouveau membre vient de créer son compte sur le site.</p>
+<ul>
+    <li>Prénom : <strong>{{ user.firstname }}</strong></li>
+    <li>Nom : <strong>{{ user.lastname }}</strong></li>
+</ul>
+<p>Tu peux l'accepter si tu vois qui c'est, ou l'ignorer si c'est un inconnu, ou si sa dette est trop vénère, ou si c'est quelqu'un qu'on aime pas.</p>
+
+<p style="text-align: center">
+    <a href="{{ path('admin_user_accept', {
+        'user': user.id
+    })}}">Accepter le membre</a>
+</p>
+
+<p>Bisous !</p>
+<p>Le site internet du club.</p>

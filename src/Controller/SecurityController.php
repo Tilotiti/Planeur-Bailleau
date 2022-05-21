@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Password;
+use App\Entity\User;
+use App\Form\Filter\UserFilter;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,59 +29,18 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class SecurityController extends ExtendedController
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private EntityManagerInterface $entityManager;
-    /**
-     * @var UserRepository
-     */
-    private UserRepository $userRepository;
-    /**
-     * @var UserPasswordEncoderInterface
-     */
-    private UserPasswordEncoderInterface $passwordEncoder;
-    /**
-     * @var TokenStorageInterface
-     */
-    private TokenStorageInterface $tokenStorage;
-    /**
-     * @var SessionInterface
-     */
-    private SessionInterface $session;
-    /**
-     * @var EventDispatcherInterface
-     */
-    private EventDispatcherInterface $eventDispatcher;
-    /**
-     * @var MailerInterface
-     */
-    private MailerInterface $mailer;
-    /**
-     * @var TranslatorInterface
-     */
-    private TranslatorInterface $translator;
-
     public function __construct(
-        EntityManagerInterface $entityManager,
-        UserRepository $userRepository,
-        UserPasswordEncoderInterface $passwordEncoder,
-        TokenStorageInterface $tokenStorage,
-        SessionInterface $session,
-        EventDispatcherInterface $eventDispatcher,
-        MailerInterface $mailer,
-        TranslatorInterface $translator
+        private EntityManagerInterface $entityManager,
+        private UserRepository $userRepository,
+        private UserPasswordEncoderInterface $passwordEncoder,
+        private TokenStorageInterface $tokenStorage,
+        private SessionInterface $session,
+        private EventDispatcherInterface $eventDispatcher,
+        private MailerInterface $mailer,
+        private TranslatorInterface $translator
     ) {
-
-        $this->entityManager = $entityManager;
-        $this->userRepository = $userRepository;
-        $this->passwordEncoder = $passwordEncoder;
-        $this->tokenStorage = $tokenStorage;
-        $this->session = $session;
-        $this->eventDispatcher = $eventDispatcher;
-        $this->mailer = $mailer;
-        $this->translator = $translator;
     }
+
     /**
      * @Route("/login", name="security_login")
      * @param AuthenticationUtils $authenticationUtils
@@ -336,6 +297,59 @@ class SecurityController extends ExtendedController
         }
 
         return $this->render('security/account.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+
+    /**
+     * @Route("/sign", name="security_sign")
+     * @IsGranted("IS_ANONYMOUS")
+     * @param Request $request
+     * @return Response
+     */
+    public function sign(Request $request): Response {
+        $user = new User();
+        $user->setRoles([User::ROLE_USER]);
+
+        $form = $this->createForm(UserType::class, $user);
+        $form->remove('roles');
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $email = $user->getEmail();
+
+            $exists = $this->userRepository->findOneByEmail($email);
+
+            if($exists) {
+                $this->addFlash('danger', 'Tu es déjà inscrit ... Fais un effort ... Ton mot de passe doit sûrement être ultra-sécurisé, genre "123456789", comme tout le monde ...');
+                return $this->redirectToRoute('security_login');
+            }
+
+            $this->addFlash('success', "Ton inscription a été prise en compte. Une fois validée, Tu recevras alors un e-mail et tu pourras alors te connecter au site internet.");
+
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+
+            $email = new TemplatedEmail();
+            $email->from(
+                new Address('contact@planeur-bailleau.org', 'CVVE - Planeur Bailleau')
+            );
+            $email->to('coordination.cvve.bailleau@gmail.com');
+            $email->subject('[Planeur Bailleau] Inscription');
+            $email->htmlTemplate('email/user/sign.html.twig');
+            $email->context(
+                [
+                    'user' => $user,
+                ]
+            );
+
+            $this->mailer->send($email);
+
+            return $this->redirectToRoute('security_login');
+        }
+
+        return $this->render('security/sign.html.twig', [
             'form' => $form->createView()
         ]);
     }

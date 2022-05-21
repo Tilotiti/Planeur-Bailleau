@@ -12,6 +12,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
@@ -112,5 +113,46 @@ class UserController extends ExtendedController
             'user' => $user,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/accept/{user}", name="admin_user_accept")
+     */
+    public function accept(User $user): RedirectResponse {
+        $user->setAccepted(true);
+
+        $this->entityManager->flush();
+
+        $email = new TemplatedEmail();
+        $email->from(
+            new Address('contact@planeur-bailleau.org', 'CVVE - Planeur Bailleau')
+        );
+        $email->to($user->getEmail());
+        $email->subject('[Planeur Bailleau] Votre compte');
+        $email->htmlTemplate('email/user/add.html.twig');
+        $email->context(
+            [
+                'user' => $user,
+            ]
+        );
+
+        $this->mailer->send($email);
+
+        $this->addFlash('success', "Le membre est maintenant actif (lol).");
+
+        return $this->redirectToRoute('admin_user');
+    }
+
+    /**
+     * @Route("/ban/{user}", name="admin_user_ban")
+     */
+    public function ban(User $user) {
+        $user->setAccepted(false);
+
+        $this->entityManager->flush();
+
+        $this->addFlash('success', "Il était chiant hein ? Il ne manquera à personne ...");
+
+        $this->redirectToRoute('admin_user');
     }
 }

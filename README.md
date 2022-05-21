@@ -9,7 +9,7 @@ Le dernier mobile tout en bas du camping (et il y a toujours de la bière au fra
 
 ## Requirements
 
-    php >= 7.4
+    php >= 8.0
     symfony-cli
     composer
     PostgreSQL

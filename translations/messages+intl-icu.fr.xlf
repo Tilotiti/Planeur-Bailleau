@@ -31,5 +31,11 @@
         <target>Se connecter</target>
       </segment>
     </unit>
+      <unit id="0">
+          <segment>
+              <source>nav.sign</source>
+              <target>S'inscrire</target>
+          </segment>
+      </unit>
   </file>
 </xliff>
