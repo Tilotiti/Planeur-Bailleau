@@ -16,7 +16,7 @@ class UserChecker implements UserCheckerInterface
         }
 
         if (!$user->isAccepted()) {
-            throw new CustomUserMessageAccountStatusException("Votre compte n'a pas encore été validé. N'hésitez pas à harceler Léna 6 fois par jours pour y avoir accès, on sait que c'est la meilleure manière pour que ça fonctionne.");
+            throw new CustomUserMessageAccountStatusException("Ton compte n'a pas encore été validé. N'hésite pas à harceler Léna 6 fois par jours pour y avoir accès, on sait que c'est la meilleure manière pour que ça fonctionne.");
         }
     }
 

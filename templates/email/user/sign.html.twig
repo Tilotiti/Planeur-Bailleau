@@ -7,9 +7,9 @@
 <p>Tu peux l'accepter si tu vois qui c'est, ou l'ignorer si c'est un inconnu, ou si sa dette est trop vénère, ou si c'est quelqu'un qu'on aime pas.</p>
 
 <p style="text-align: center">
-    <a href="{{ path('admin_user_accept', {
+    <a href="{{ absolute_url(path('admin_user_accept', {
         'user': user.id
-    })}}">Accepter le membre</a>
+    })) }}">Accepter le membre</a>
 </p>
 
 <p>Bisous !</p>
