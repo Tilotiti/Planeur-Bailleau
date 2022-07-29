@@ -100,6 +100,10 @@ class DocumentController extends ExtendedController
 
                 $filename = 'documents/'.$document->getId().'.'.$slug.'.'.$file->getClientOriginalExtension();
 
+                if($this->s3Filesystem->has($filename)) {
+                    $this->s3Filesystem->delete($filename);
+                }
+
                 $this->s3Filesystem->writeStream($filename, $stream);
 
                 fclose($stream);
