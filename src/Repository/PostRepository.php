@@ -15,7 +15,8 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    public function search(?array $params = null): Query {
+    public function search(?array $params = null): Query
+    {
         $dql = $this->createQueryBuilder('post');
         $dql->select('DISTINCT post');
 
@@ -29,6 +30,10 @@ class PostRepository extends ServiceEntityRepository
                 ->setParameter('locale', $params['locale']);
         }
 
+        if(!empty('published')) {
+            $dql->andWhere('post.draft = false');
+        }
+
         $dql->orderBy('post.createdAt', 'DESC');
 
         return $dql->getQuery();
@@ -39,7 +44,8 @@ class PostRepository extends ServiceEntityRepository
      * @param int $post
      * @return Paginator|Post[]
      */
-    public function pagination(?array $params = null, int $post = 1): Paginator {
+    public function pagination(?array $params = null, int $post = 1): Paginator
+    {
         $query = $this->search($params);
 
         $query->setMaxResults(10);
