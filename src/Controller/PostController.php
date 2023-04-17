@@ -38,7 +38,8 @@ class PostController extends ExtendedController
      */
     public function index(Request $request): Response {
         $posts = $this->postRepository->pagination([
-            'locale' => $request->getLocale()
+            'locale' => $request->getLocale(),
+            'published' => true
         ], $request->query->getInt('page', 1));
 
         return $this->render('post/index.html.twig', [
